@@ -1,0 +1,242 @@
+/* src/components/Modal.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius) var(--radius) 0 0;
+  width: 100%;
+  max-width: 640px;
+  padding: 20px 20px 32px;
+  animation: slideUp 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.handle {
+  width: 36px;
+  height: 4px;
+  background: var(--bg4);
+  border-radius: 2px;
+  margin: 0 auto 18px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+.tip {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+.tip strong { color: var(--amber); }
+.tip em     { color: var(--text3); font-style: normal; }
+
+.textarea {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 12px;
+  resize: none;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.textarea:focus { border-color: var(--green); }
+.textarea::placeholder { color: var(--text3); }
+.textarea:disabled { opacity: 0.6; }
+
+.hint {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 4px;
+  text-align: right;
+}
+
+.error {
+  background: var(--red-dim);
+  border: 1px solid rgba(255, 82, 82, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--red);
+  margin-top: 10px;
+}
+
+/* AI result card */
+.result {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-top: 14px;
+  animation: fadeUp 0.25s ease;
+}
+
+.resultHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.aiBadge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.confidence {
+  font-size: 12px;
+  color: var(--text2);
+}
+
+.resultName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.macroGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.macroBox {
+  background: var(--bg4);
+  border-radius: var(--radius-sm);
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.macroVal {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.macroLabel {
+  font-size: 10px;
+  color: var(--text2);
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.aiNote {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* Action buttons */
+.actions {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btnPrimary {
+  width: 100%;
+  padding: 14px;
+  background: var(--green);
+  color: #0e0f11;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+}
+
+.btnPrimary:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); }
+.btnPrimary:disabled              { opacity: 0.4; cursor: not-allowed; }
+
+.btnCancel {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg4);
+  color: var(--text2);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btnCancel:hover { background: var(--bg3); }
