@@ -12,6 +12,11 @@ const supabase = createClient(
 );
 
 export async function requireAuth(req, res, next) {
+  // Allow browser preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
   try {
     const authHeader = req.headers.authorization;
 
@@ -32,6 +37,7 @@ export async function requireAuth(req, res, next) {
 
     req.user = user;
     req.token = token;
+
     next();
 
   } catch (err) {
