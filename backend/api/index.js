@@ -34,6 +34,7 @@ const aiLimiter = rateLimit({
   message: { error: 'Too many requests. Please slow down.' },
   standardHeaders: true,
   legacyHeaders: false,
+  skip: (req) => req.method === 'OPTIONS',
 });
 
 // ── Routes ────────────────────────────────────────────────────────
