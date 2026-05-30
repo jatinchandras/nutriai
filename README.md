@@ -6,7 +6,7 @@
 
 ---
 
-## 🔑 API Keys Needed (all free, no credit card)
+##  API Keys Needed (all free, no credit card)
 
 | Service | Where to get it | Used for |
 |---------|----------------|----------|
@@ -16,7 +16,7 @@
 
 ---
 
-## 🚀 Deploy in ~15 Minutes
+##  Deploy in ~15 Minutes
 
 ### Step 1 — Supabase setup (5 min)
 
